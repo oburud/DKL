@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dreger Kenya Limited</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/Icon.png')}}">
+
+<!--    Bootstrap CSS for this project-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.min.css')}}">
+</head>
+
+<body>
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color:#e4efe7;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img src="{{url_for('static', filename='img/DKL_Logo.png')}}">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="#navbarResponsive">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url_for('school') }}">Driving School </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+                {% if not logged_in: %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
+                </li>
+            </ul>
+            <form class="d-sm-flex">
+                <input class="form-control mr-2 form-control-sm" type="search" placeholder="Search Dreger"
+                       aria-label="Search">
+                <span>
+                     <button class="btn btn-outline-success" type="submit">Search</button>
+                </span>
+            </form>
+        </div>
+    </div>
+</nav>
